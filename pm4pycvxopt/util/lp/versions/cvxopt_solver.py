@@ -44,6 +44,8 @@ def apply(c, Aub, bub, Aeq, beq, parameters=None):
     solvers.options['glpk']['LPX_K_MSGLEV'] = 0
     solvers.options['glpk']['msg_lev'] = 'GLP_MSG_OFF'
     solvers.options['glpk']['show_progress'] = False
+    solvers.options['glpk']['presolve'] = "GLP_ON"
+    solvers.options['glpk']['meth'] = "GLP_PRIMAL"
     solvers.options['msg_lev'] = 'GLP_MSG_OFF'
     solvers.options['show_progress'] = False
 

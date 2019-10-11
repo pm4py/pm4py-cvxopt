@@ -9,6 +9,8 @@ this_options["msg_lev"] = "GLP_MSG_OFF"
 this_options["show_progress"] = False
 this_options["presolve"] = "GLP_ON"
 this_options["meth"] = "GLP_PRIMAL"
+#this_options["pricing"] = "GLP_PT_STD"
+#this_options["r_test"] = "GLP_RT_STD"
 
 def custom_solve_lp(c, G, h, A, b):
     status, x, z, y = glpk.lp(c, G, h, A, b, options=this_options)
