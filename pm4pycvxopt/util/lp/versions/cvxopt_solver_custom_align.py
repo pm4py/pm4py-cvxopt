@@ -8,9 +8,12 @@ this_options["LPX_K_MSGLEV"] = 0
 this_options["msg_lev"] = "GLP_MSG_OFF"
 this_options["show_progress"] = False
 this_options["presolve"] = "GLP_ON"
-this_options["meth"] = "GLP_PRIMAL"
-#this_options["pricing"] = "GLP_PT_STD"
-#this_options["r_test"] = "GLP_RT_STD"
+this_options["tol_bnd"] = 10**-5
+this_options["tol_piv"] = 10**-5
+this_options["obj_ll"] = 10**-5
+this_options["obj_ul"] = 10**-5
+this_options["obj_ul"] = 10**-5
+
 
 def custom_solve_lp(c, G, h, A, b):
     status, x, z, y = glpk.lp(c, G, h, A, b, options=this_options)

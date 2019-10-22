@@ -25,7 +25,7 @@ from pm4py.objects.stochastic_petri import lp_perf_bounds
 lp_perf_bounds.DEFAULT_LP_SOLVER_VARIANT = factory.CVXOPT
 
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 __doc__ = "Process Mining for Python - CVXOpt Support"
 __author__ = 'PADS'
 __author_email__ = 'pm4py@pads.rwth-aachen.de'
