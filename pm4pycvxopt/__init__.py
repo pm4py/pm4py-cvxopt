@@ -1,11 +1,12 @@
 from pm4pycvxopt import util
 
-from pm4pycvxopt.util.lp.versions import cvxopt_solver, cvxopt_solver_custom_align
+from pm4pycvxopt.util.lp.versions import cvxopt_solver, cvxopt_solver_custom_align, cvxopt_solver_custom_align_ilp
 
 from pm4py.util.lp import factory
 
 factory.CVXOPT = "cvxopt"
 factory.CVXOPT_SOLVER_CUSTOM_ALIGN = "cvxopt_solver_custom_align"
+factory.CVXOPT_SOLVER_CUSTOM_ALIGN_ILP = "cvxopt_solver_custom_align_ilp"
 
 factory.VERSIONS_APPLY[factory.CVXOPT] = cvxopt_solver.apply
 factory.VERSIONS_GET_PRIM_OBJ[factory.CVXOPT] = cvxopt_solver.get_prim_obj_from_sol
@@ -15,6 +16,11 @@ factory.VERSIONS_APPLY[factory.CVXOPT_SOLVER_CUSTOM_ALIGN] = cvxopt_solver_custo
 factory.VERSIONS_GET_PRIM_OBJ[factory.CVXOPT_SOLVER_CUSTOM_ALIGN] = cvxopt_solver_custom_align.get_prim_obj_from_sol
 factory.VERSIONS_GET_POINTS_FROM_SOL[
     factory.CVXOPT_SOLVER_CUSTOM_ALIGN] = cvxopt_solver_custom_align.get_points_from_sol
+
+factory.VERSIONS_APPLY[factory.CVXOPT_SOLVER_CUSTOM_ALIGN_ILP] = cvxopt_solver_custom_align_ilp.apply
+factory.VERSIONS_GET_PRIM_OBJ[factory.CVXOPT_SOLVER_CUSTOM_ALIGN_ILP] = cvxopt_solver_custom_align_ilp.get_prim_obj_from_sol
+factory.VERSIONS_GET_POINTS_FROM_SOL[
+    factory.CVXOPT_SOLVER_CUSTOM_ALIGN_ILP] = cvxopt_solver_custom_align_ilp.get_points_from_sol
 
 from pm4py.algo.conformance.alignments.versions import state_equation_a_star
 
