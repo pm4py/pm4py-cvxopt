@@ -9,7 +9,7 @@ custom_solver = cvxopt_solver_custom_align
 try:
     # for ARM-based Linux, we need to use a different call to GLPK
     if "arm" in str(os.uname()[-1]):
-        custom_solver = cvxopt_solver_custom_align_arm
+        custom_solver = cvxopt_solver
 except:
     pass
 
@@ -41,7 +41,7 @@ from pm4py.objects.stochastic_petri import lp_perf_bounds
 lp_perf_bounds.DEFAULT_LP_SOLVER_VARIANT = factory.CVXOPT
 
 
-__version__ = '0.0.6'
+__version__ = '0.0.7'
 __doc__ = "Process Mining for Python - CVXOpt Support"
 __author__ = 'PADS'
 __author_email__ = 'pm4py@pads.rwth-aachen.de'
