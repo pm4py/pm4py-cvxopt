@@ -3,20 +3,9 @@ import sys
 from cvxopt import blas
 from cvxopt import glpk
 
-this_options = {}
-this_options["LPX_K_MSGLEV"] = 0
-this_options["msg_lev"] = "GLP_MSG_OFF"
-this_options["show_progress"] = False
-this_options["presolve"] = "GLP_ON"
-this_options["tol_bnd"] = 10**-5
-this_options["tol_piv"] = 10**-5
-this_options["obj_ll"] = 10**-5
-this_options["obj_ul"] = 10**-5
-this_options["obj_ul"] = 10**-5
 
-
-def custom_solve_ilp(c, G, h, A, b):
-    status, x = glpk.ilp(c, G, h, A, b)
+def custom_solve_lp(c, G, h, A, b):
+    status, x, z, y = glpk.lp(c, G, h, A, b)
 
     if status == 'optimal':
         pcost = blas.dot(c, x)
@@ -50,7 +39,7 @@ def apply(c, Aub, bub, Aeq, beq, parameters=None):
     sol
         Solution of the LP problem by the given algorithm
     """
-    sol = custom_solve_ilp(c, Aub, bub, Aeq, beq)
+    sol = custom_solve_lp(c, Aub, bub, Aeq, beq)
 
     return sol
 
