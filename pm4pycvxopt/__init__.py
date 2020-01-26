@@ -40,8 +40,12 @@ from pm4py.objects.stochastic_petri import lp_perf_bounds
 
 lp_perf_bounds.DEFAULT_LP_SOLVER_VARIANT = factory.CVXOPT
 
+from pm4py.algo.conformance.alignments import factory as align_factory
 
-__version__ = '0.0.7'
+align_factory.DEFAULT_VARIANT = align_factory.VERSION_STATE_EQUATION_A_STAR
+
+
+__version__ = '0.0.8'
 __doc__ = "Process Mining for Python - CVXOpt Support"
 __author__ = 'PADS'
 __author_email__ = 'pm4py@pads.rwth-aachen.de'
